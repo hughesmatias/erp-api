@@ -8,12 +8,18 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "nodemonConfig": {
-    "ignore": ["test/*", "docs/*", "config/*", "migrations/*"],
+    "ignore": [
+      "test/*",
+      "docs/*",
+      "config/*",
+      "migrations/*"
+    ],
     "delay": "2500"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "sequelize": "^2.0.0-rc1",
     "sequelize-cli": "^6.1.0",

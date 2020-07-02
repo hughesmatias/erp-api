@@ -1,7 +1,8 @@
 const express = require('express');
 const models = require('./models');
-
-const port = process.env.PORT;
+const {
+  port,
+} = require('./config');
 
 const app = express();
 
@@ -10,5 +11,5 @@ app.get('/version', (req, res) => {
 });
 
 models.sequelize.sync().then(function() {
-  app.listen(5000, () => console.log(`Running in 5000`));
+  app.listen(port, () => console.log(`Running in ${port}`));
 });
