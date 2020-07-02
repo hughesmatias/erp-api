@@ -12,3 +12,8 @@ ORM - sequelize
 ## RUN
 
 `npm start` Running api
+
+### Organize project
+
+The folder structure
+<https://softwareontheroad.com/ideal-nodejs-project-structure>
