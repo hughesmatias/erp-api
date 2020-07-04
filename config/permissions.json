@@ -1,0 +1,9 @@
+{
+  "employed": {
+    "/proveedor": ["GET"],
+    "/paciente": ["GET", "POST", "PUT"],
+    "/asistencia": ["GET", "POST"],
+    "/asegurador": ["GET"],
+    "/factura": ["GET"]
+  }
+}
