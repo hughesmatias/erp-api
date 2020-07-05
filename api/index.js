@@ -15,14 +15,13 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.use(securityRoutes, authenticate(secret));
+app.use(securityRoutes, authenticate);
 
 app.get('/version', (req, res) => {
   res.end('version 1.0');
 });
 
-app.use('/', routes);
-
-models.sequelize.sync().then(function() {
+models.sequelize.sync().then(() => {
+  app.use('/', routes);
   app.listen(port, () => console.log(`Running in ${port}`));
 });
