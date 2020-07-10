@@ -3,8 +3,8 @@ const bodyParser = require('body-parser');
 const models = require('../models');
 const {
   port,
-  secret,
   securityRoutes,
+  withSecurity,
 } = require('../config');
 const authenticate = require('./middlewares/authentication');
 
@@ -15,7 +15,9 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.use(securityRoutes, authenticate);
+if (withSecurity) {
+  app.use(securityRoutes, authenticate);
+}
 
 app.get('/version', (req, res) => {
   res.end('version 1.0');
