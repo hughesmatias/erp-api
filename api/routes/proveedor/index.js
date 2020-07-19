@@ -26,8 +26,9 @@ module.exports = models => {
 
   router.delete('/:id', async (req, res) => {
     const { id  } = req.params;
-    const deleted = await models.Proveedor.destroy(id);
-    res.send(deleted);
+    const proveedor = await models.Proveedor.findOne({ where: { id }});
+    proveedor.destroy();
+    res.send({ message: 'Deleted' });
   });
 
   return router;

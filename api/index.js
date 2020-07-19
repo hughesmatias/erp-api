@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors')
 const models = require('../models');
 const {
   port,
@@ -12,8 +13,9 @@ const routes = require('./routes');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cors());
 
 if (withSecurity) {
   app.use(securityRoutes, authenticate);
